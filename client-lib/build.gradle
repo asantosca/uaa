@@ -2,6 +2,11 @@ description = 'CloudFoundry Identity Client Library Jar'
 
 dependencies {
   compile project(':cloudfoundry-identity-model')
+
+  compile ('org.slf4j:slf4j-api') {
+     exclude group: 'org.slf4j', module: 'slf4j-log4j12'
+  }
+
   compile group: 'org.apache.httpcomponents', name: 'httpclient', version: parent.commonsHttpClientVersion
   testCompile group: 'junit', name: 'junit', version: parent.junitVersion
   testCompile project(':cloudfoundry-identity-model').configurations.testCompile.dependencies
